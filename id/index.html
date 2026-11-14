@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Citizen ID - $3 - Leonida Launch Guide</title>
+<meta name="description" content="Get your Leonida ID before the doors open. Your alias, your citizen number, stamped for 19 November. Unofficial fan item.">
+<meta property="og:title" content="Get your Leonida ID before the doors open.">
+<meta property="og:image" content="https://ceo525.github.io/leonida-launch-guide/og-card.png">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .idwrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  #card { width: 100%; max-width: 100%; height: auto; border-radius: 14px; display: block; }
+  .row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+  .row input { flex: 1 1 14rem; min-width: 0; max-width: 100%; min-height: 48px; font: inherit; padding: 0 0.9rem; border-radius: 999px; border: 2px solid var(--gold); background: var(--panel); color: var(--ink); }
+  .small-print { font-size: 0.9rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="bar">
+  <a class="brand" href="../index.html"><strong>Leonida Launch Guide</strong><span>unofficial GTA VI fan guide</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../tracker.html">Tracker</a></li>
+    <li><a href="../pack.html">Field Pack</a></li>
+    <li><a href="./" aria-current="page">Citizen ID</a></li>
+  </ul></nav>
+</div></header>
+
+<main id="main">
+  <h1>Get your Leonida ID before the doors open.</h1>
+  <p class="lede">Your alias. Your citizen number. Stamped for 19 November. Made in seconds, yours to post.</p>
+
+  <div class="idwrap">
+    <div class="row">
+      <label for="alias" class="small-print">Alias</label>
+      <input id="alias" maxlength="22" value="Vice Night Rider" autocomplete="nickname">
+    </div>
+    <canvas id="card" aria-label="Preview of your Leonida Citizen ID"></canvas>
+    <div class="cta-row">
+      <a class="btn" id="buy" href="https://buy.stripe.com/14A4gB1Uy198baw5yX7wA0c">Claim my ID: $3</a>
+      <button class="btn ghost" id="dl" type="button">Download free preview</button>
+    </div>
+    <p class="small-print">Less than the $4.99 Field Pack. Paid ID: full resolution, no watermark, instant. The free preview is small and watermarked.</p>
+    <p class="small-print">Instant delivery. Unofficial fan item, not affiliated with Rockstar Games. Refund on request within 14 days.</p>
+  </div>
+</main>
+
+<footer class="site">
+  <p>Unofficial fan site. Not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.</p>
+  <p>Refund on request within 14 days. <a href="../about.html">About and disclaimer</a></p>
+</footer>
+<script src="idcard.js"></script>
+<script>
+(function () {
+  var c = document.getElementById("card"), a = document.getElementById("alias");
+  function draw() { window.LeonidaID.drawCard(c, { alias: a.value, scale: 0.4, watermark: true }); }
+  a.addEventListener("input", draw);
+  document.getElementById("dl").addEventListener("click", function () {
+    var link = document.createElement("a");
+    link.download = "leonida-id-preview.png";
+    link.href = c.toDataURL("image/png");
+    link.click();
+  });
+  draw();
+})();
+</script>
+</body>
+</html>

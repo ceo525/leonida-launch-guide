@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Leonida Citizen ID</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  #card { width: 100%; height: auto; border-radius: 14px; display: block; }
+  .row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin: 1rem 0; }
+  .row input { flex: 1 1 14rem; min-height: 48px; font: inherit; padding: 0 0.9rem; border-radius: 999px; border: 2px solid var(--gold); background: var(--panel); color: var(--ink); }
+</style>
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="brand" href="../../index.html"><strong>Leonida Launch Guide</strong><span>unofficial GTA VI fan guide</span></a>
+</div></header>
+<main id="main">
+  <h1>Welcome, citizen.</h1>
+  <p class="lede">Thanks for your order. Type your alias, then download your full-resolution ID. You can come back to this page any time.</p>
+  <div class="row">
+    <label for="alias">Alias</label>
+    <input id="alias" maxlength="22" value="" placeholder="Your alias" autocomplete="nickname">
+  </div>
+  <canvas id="card" aria-label="Your Leonida Citizen ID"></canvas>
+  <div class="cta-row">
+    <button class="btn" id="dl" type="button">Download my ID (PNG)</button>
+    <a class="btn ghost" id="share" href="#">Post it on X</a>
+  </div>
+  <p class="launch-note">Unofficial fan item, not affiliated with Rockstar Games. Refund on request within 14 days.</p>
+</main>
+<footer class="site"><p>Unofficial fan site. Not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.</p></footer>
+<script src="../idcard.js"></script>
+<script>
+(function () {
+  var c = document.getElementById("card"), a = document.getElementById("alias");
+  var q = new URLSearchParams(location.search);
+  if (q.get("alias")) a.value = q.get("alias");
+  function draw() { return window.LeonidaID.drawCard(c, { alias: a.value, scale: 2, watermark: false }); }
+  a.addEventListener("input", draw);
+  document.getElementById("dl").addEventListener("click", function () {
+    var info = draw();
+    var link = document.createElement("a");
+    link.download = "leonida-id-" + info.number + ".png";
+    link.href = c.toDataURL("image/png");
+    link.click();
+  });
+  var text = encodeURIComponent("Got my Leonida Citizen ID before the doors open. https://ceo525.github.io/leonida-launch-guide/id/");
+  document.getElementById("share").href = "https://x.com/intent/post?text=" + text;
+  draw();
+})();
+</script>
+</body>
+</html>
