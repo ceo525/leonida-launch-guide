@@ -5,6 +5,7 @@
 (function () {
   var me = document.currentScript;
   if (!me) return;
+  if (/[?&]nt=1(&|$)/.test(location.search) || navigator.webdriver) return; // test traffic
   var site = me.getAttribute('data-site'), page = me.getAttribute('data-page');
   if (!site || !page) return;
   var BASE = 'https://abacus.jasoncameron.dev/hit/ceo525/';
