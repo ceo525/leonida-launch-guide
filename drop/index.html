@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch-Night Sealed Drop - $5 - Leonida Launch Guide</title>
+<meta name="description" content="Pay now, stay sealed. At midnight on 19 November your drop opens: wallpapers, your I was there certificate and a launch-night badge. Unofficial fan item.">
+<meta property="og:title" content="Something unlocks the second Leonida opens.">
+<meta property="og:description" content="Sealed Drop, $5. Opens at 00:00 on 19 Nov, your local time. Sale closes when the countdown does.">
+<meta property="og:image" content="https://ceo525.github.io/leonida-launch-guide/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="bar">
+  <a class="brand" href="../index.html"><strong>Leonida Launch Guide</strong><span>unofficial GTA VI fan guide</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../tracker.html">Tracker</a></li>
+    <li><a href="../id/">Citizen ID</a></li>
+    <li><a href="./" aria-current="page">Sealed Drop</a></li>
+  </ul></nav>
+</div></header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-h">
+    <h1 id="hero-h">Something unlocks the second Leonida opens.</h1>
+    <p class="cd-date">Opens 19 November 2026, 00:00 your time</p>
+    <ul class="countdown compact" id="countdown" role="timer" aria-label="Time remaining until 19 November 2026" hidden>
+      <li><span class="num" data-unit="days">--</span><span class="lbl">Days</span></li>
+      <li><span class="num" data-unit="hours">--</span><span class="lbl">Hours</span></li>
+      <li><span class="num" data-unit="minutes">--</span><span class="lbl">Minutes</span></li>
+      <li><span class="num" data-unit="seconds">--</span><span class="lbl">Seconds</span></li>
+    </ul>
+    <div class="cta-row hero-cta" id="buy-row">
+      <a class="btn" id="buy" href="https://buy.stripe.com/28E3cx7eSg42fqM9Pd7wA0d">Seal my drop: $5</a>
+    </div>
+    <p class="small-print" id="buy-note">Opens at 00:00 on 19 Nov, your local time. Refund on request within 14 days.</p>
+    <p class="small-print" id="closed-note" hidden>The sale closed when the countdown reached zero.</p>
+  </section>
+
+  <section aria-labelledby="what-h">
+    <h2 id="what-h">What is inside</h2>
+    <p class="lede">Pay now, stay sealed. At midnight on 19 November your drop opens: wallpapers, your "I was there" certificate and a launch-night badge. Sale closes when the countdown does.</p>
+    <ul>
+      <li>A wallpaper pack for phone and desktop (original art).</li>
+      <li>An "I was there" certificate stamped with your alias and the launch date.</li>
+      <li>A launch-night badge to post.</li>
+    </ul>
+    <p class="small-print">The surprise is the art, not whether you get something. After paying you land on your sealed page; keep that link. It opens at 00:00 on 19 November in your own time zone.</p>
+  </section>
+</main>
+
+<footer class="site">
+  <p>Unofficial fan site. Not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.</p>
+  <p>Refund on request within 14 days. <a href="../about.html">About and disclaimer</a></p>
+</footer>
+<script src="../countdown.js"></script>
+<script>
+(function () {
+  // Hide the buy button once launch passes; the Payment Link is also deactivated then (RELEASE.md).
+  var target = new Date(2026, 10, 19, 0, 0, 0).getTime();
+  function check() {
+    if (Date.now() < target) return;
+    document.getElementById('buy-row').hidden = true;
+    document.getElementById('buy-note').hidden = true;
+    document.getElementById('closed-note').hidden = false;
+    clearInterval(t);
+  }
+  var t = setInterval(check, 1000);
+  check();
+})();
+</script>
+</body>
+</html>
