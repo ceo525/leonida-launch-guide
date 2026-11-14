@@ -4,11 +4,11 @@ var TRACKER_DATA = [
   {
     title: 'Pre-launch setup',
     items: [
-      { id: 'pre-1', text: 'Check how much free storage your console or PC has' },
+      { id: 'pre-1', text: 'Check how much free storage your PS5 or Xbox Series X|S has' },
       { id: 'pre-2', text: 'Confirm your platform account is signed in and your payment details are current' },
       { id: 'pre-3', text: 'Start the download or preload as soon as it is available to you' },
       { id: 'pre-4', text: 'Charge controllers and set up a spare charging cable' },
-      { id: 'pre-5', text: 'Update your console system software or PC graphics drivers' },
+      { id: 'pre-5', text: 'Update your PS5 or Xbox Series X|S system software' },
       { id: 'pre-6', text: 'Test your internet connection and plan for a wired link if you can' },
       { id: 'pre-7', text: 'Clear your evening and tell the people around you' },
       { id: 'pre-8', text: 'Stock water and snacks within reach of the couch or desk' }
