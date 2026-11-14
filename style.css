@@ -236,6 +236,25 @@ footer.site p { margin: 0.4rem 0; max-width: 72ch; }
 footer.site .contact { font-size: 1rem; color: var(--sand); }
 footer.site > p { max-width: var(--wrap); margin-left: auto; margin-right: auto; }
 
+/* WD-18: smallest phones (320x568). Pull the priced buy button into the first screen.
+   Spacing and type only; nothing here applies at 360px and up. */
+@media (max-width: 359px) {
+  main { padding-top: 1rem; }
+  h1 { font-size: 2rem; margin-bottom: 0.45rem; }
+  .lede { font-size: 1rem; line-height: 1.45; margin: 0.5rem 0; }
+  .mast { height: 120px; }
+  .cd-date { margin: 0.15rem 0; }
+  .countdown { gap: 0.35rem; margin: 0.5rem 0; }
+  .countdown li { padding: 0.3rem 0.2rem; }
+  .countdown .num { font-size: 1.6rem; }
+  .countdown .lbl { font-size: 0.75rem; }
+  .buy { margin-top: 0.75rem; }
+  .hero-cta { margin-top: 0.6rem; }
+  .cta-row { margin: 0.75rem 0; }
+  .hero-art { min-height: 190px; }
+  .hero-copy { padding-top: 0.9rem; }
+}
+
 @media (min-width: 600px) { .two { grid-template-columns: 1fr 1fr; } }
 @media (prefers-reduced-motion: reduce) { .bar-fill { transition: none; } }
 @media print { .mast, .hero-art, header.site nav { display: none; } }
