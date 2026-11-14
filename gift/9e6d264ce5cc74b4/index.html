@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Your GTA VI Gift Kit</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  #cert { width: 100%; height: auto; border-radius: 12px; display: block; }
+  .form { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.8rem; margin: 1rem 0; }
+  .form label { display: grid; gap: 0.3rem; }
+  .form input, .form select, .form textarea { min-width: 0; max-width: 100%; min-height: 48px; font: inherit; padding: 0.5rem 0.9rem; border-radius: 14px; border: 2px solid var(--gold); background: var(--panel); color: var(--ink); }
+  .form textarea { min-height: 5rem; resize: vertical; }
+  #howto h2 { margin-top: 0; }
+  #howto li { margin-bottom: 0.5rem; }
+  @media print {
+    header.site, footer.site, .no-print { display: none !important; }
+    body { background: #fff; color: #000; }
+    #cert { page-break-after: always; border-radius: 0; }
+    #howto { border: 1px solid #000; background: #fff; color: #000; }
+    #howto a { color: #000; }
+  }
+</style>
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="brand" href="../../index.html"><strong>Leonida Launch Guide</strong><span>unofficial GTA VI fan guide</span></a>
+</div></header>
+<main id="main">
+  <h1 class="no-print">Your Gift Kit is ready.</h1>
+  <p class="lede no-print">Thanks for your order. Fill in the details, then download the certificate or print it with the how-to-give-it card. You can come back to this page any time.</p>
+
+  <div class="form no-print">
+    <label>Their name <input id="to" maxlength="24" placeholder="Who is it for?" autocomplete="off"></label>
+    <label>From <input id="from" maxlength="24" placeholder="Your name" autocomplete="off"></label>
+    <label>What you are giving
+      <select id="edition">
+        <option value="standard">Standard Edition</option>
+        <option value="ultimate">Ultimate Edition</option>
+        <option value="upgrade">Ultimate Edition Upgrade (they have the boxed copy)</option>
+      </select>
+    </label>
+    <label>Their console
+      <select id="platform">
+        <option value="ps5">PlayStation 5</option>
+        <option value="xbox">Xbox Series X|S</option>
+        <option value="unsure">Not sure yet</option>
+      </select>
+    </label>
+    <label>Their country
+      <select id="region">
+        <option value="us">United States or Canada</option>
+        <option value="uk">United Kingdom</option>
+        <option value="eu">Europe (EU, Norway, Switzerland)</option>
+        <option value="oc">Australia or New Zealand</option>
+        <option value="jp">Japan</option>
+        <option value="other">Somewhere else</option>
+      </select>
+    </label>
+    <label>Message (optional) <textarea id="msg" maxlength="140" placeholder="Merry Christmas. See you in Vice City."></textarea></label>
+  </div>
+
+  <canvas id="cert" aria-label="Your GTA VI gift certificate"></canvas>
+  <div class="cta-row no-print">
+    <button class="btn" id="dl" type="button">Download certificate (PNG)</button>
+    <button class="btn ghost" id="print" type="button">Print certificate + card</button>
+  </div>
+
+  <section class="card" id="howto" aria-labelledby="howto-h">
+    <h2 id="howto-h">How to give it</h2>
+    <ul class="plain" id="howto-list"></ul>
+    <p class="small-print">Facts checked 14 Nov 2026 against <a href="https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions" rel="noopener">Rockstar Support: Platforms, Editions and Versions</a> and <a href="https://gta6.how/guides/how-to-buy-gta-6-as-a-gift/" rel="noopener">GTA6.how: How to buy GTA 6 as a gift</a>. Store rules can change; check the store before you pay.</p>
+  </section>
+
+  <p class="launch-note">Unofficial fan item, not affiliated with Rockstar Games. This certificate is not a game code. Refund on request within 14 days.</p>
+</main>
+<footer class="site"><p>Unofficial fan site. Not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.</p></footer>
+<script src="../giftcert.js"></script>
+<script>
+(function () {
+  "use strict";
+  function $(id) { return document.getElementById(id); }
+  var c = $("cert");
+  var REGION = {
+    us: "the US or Canada", uk: "the UK", eu: "their European country", oc: "Australia or New Zealand",
+    jp: "Japan", other: "their country"
+  };
+
+  function tips(edition, platform, region) {
+    var where = REGION[region] || REGION.other;
+    var t = [];
+    if (platform === "ps5") {
+      t.push("PS5: the PlayStation Store has no gift button. Give a boxed copy (a download code, no disc) or a PlayStation Store gift card sold for " + where + ".");
+      t.push("PlayStation codes and gift cards only work on an account from the region they were sold in, so buy for the country their account is set to, not yours.");
+      if (region === "us") t.push("The PS5 boxed code on Amazon.com works only on US and Canadian accounts.");
+    } else if (platform === "xbox") {
+      t.push("Xbox: give a boxed copy (a download code, no disc), an Xbox gift card for " + where + ", or look for \u201cBuy as gift\u201d next to the buy button in the Microsoft Store.");
+      t.push("Rockstar says Xbox game codes are not region-locked, but Xbox gift cards are tied to the country they were sold in.");
+    } else {
+      t.push("Find out their console first. GTA VI is on PS5 and Xbox Series X|S only: not PS4, Xbox One or PC. A PS5 code does not work on Xbox, and any \u201cGTA 6 PC key\u201d is fake.");
+      t.push("If you cannot ask, wait until you know: PlayStation and Xbox codes and gift cards are not interchangeable.");
+    }
+    if (edition === "standard") {
+      t.push(region === "uk" ? "Standard Edition is \u00a369.99 in the UK (VAT included)." :
+        region === "us" ? "Standard Edition is $79.99 before tax. In the US, two $50 cards cover it with room for sales tax." :
+        "Standard Edition: check the local store price and round the card amount up.");
+      t.push("A boxed copy is always the Standard Edition. It can be upgraded later with the $20 Ultimate Edition Upgrade.");
+    } else if (edition === "ultimate") {
+      t.push("The Ultimate Edition is digital only: there is no boxed version, so give store credit.");
+      t.push(region === "uk" ? "Ultimate is \u00a389.99 in the UK (VAT included)." :
+        region === "us" ? "Ultimate is $99.99 before tax. Put a little over $100 on cards where sales tax applies." :
+        "Check the local store price for Ultimate and round the card amount up.");
+    } else {
+      t.push("The Ultimate Edition Upgrade is $20 in the US and is bought from the PlayStation or Microsoft store after the boxed code is redeemed. A $25 card covers it with tax.");
+    }
+    t.push("Bonus deadline: purchases made before 20 November 2026 include the Vintage Vice City Pack. A boxed copy bought by 19 November keeps it even if it stays wrapped until Christmas; a gift card spent after that date does not get it.");
+    if (region === "jp") t.push("Japanese codes expire 170 days after launch (19 Nov 2026). Give it well before then.");
+    t.push("Age: there is no final rating yet. Expect Mature 17+ in North America and PEGI 18 in Europe. A child account spends from the family manager\u2019s wallet and can be blocked by parental settings.");
+    t.push("Do not redeem the code or card yourself: once redeemed it cannot move to another account. Keep the receipt until the game is installed.");
+    return t;
+  }
+
+  function render() {
+    var ed = $("edition").value, pl = $("platform").value, rg = $("region").value;
+    window.LeonidaGift.drawCert(c, { to: $("to").value, from: $("from").value, edition: ed,
+      message: $("msg").value, scale: 2, watermark: false });
+    var ul = $("howto-list");
+    while (ul.firstChild) ul.removeChild(ul.firstChild);
+    tips(ed, pl, rg).forEach(function (s) { var li = document.createElement("li"); li.textContent = s; ul.appendChild(li); });
+  }
+
+  var q = new URLSearchParams(location.search);
+  ["to", "from", "msg"].forEach(function (k) { if (q.get(k)) $(k).value = q.get(k); });
+  ["edition", "platform", "region"].forEach(function (k) {
+    var v = q.get(k); if (v && $(k).querySelector('option[value="' + v.replace(/[^a-z]/g, "") + '"]')) $(k).value = v;
+  });
+  ["to", "from", "msg", "edition", "platform", "region"].forEach(function (k) {
+    $(k).addEventListener("input", render);
+    $(k).addEventListener("change", render);
+  });
+  $("dl").addEventListener("click", function () {
+    render();
+    var a = document.createElement("a");
+    var name = window.LeonidaGift.clean($("to").value, 24, "gift").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    a.download = "gta-vi-gift-certificate-" + name + ".png";
+    a.href = c.toDataURL("image/png");
+    a.click();
+  });
+  $("print").addEventListener("click", function () { render(); window.print(); });
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA VI Gift Kit - $4 - Leonida Launch Guide</title>
+<meta name="description" content="Giving GTA VI this Christmas? Every copy is a code, even the boxed one. Get a personalised printable gift certificate and a one-page how-to-give-it card. $4, instant. Unofficial fan item.">
+<link rel="canonical" href="https://ceo525.github.io/leonida-launch-guide/gift/">
+<meta property="og:title" content="Give GTA VI this Christmas: Gift Kit $4">
+<meta property="og:description" content="A personalised gift certificate to wrap, plus the one-page guide to actually giving the game.">
+<meta property="og:image" content="https://ceo525.github.io/leonida-launch-guide/og-card.png">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .giftwrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  #cert { width: 100%; max-width: 100%; height: auto; border-radius: 12px; display: block; }
+  .row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+  .row input { flex: 1 1 14rem; min-width: 0; max-width: 100%; min-height: 48px; font: inherit; padding: 0 0.9rem; border-radius: 999px; border: 2px solid var(--gold); background: var(--panel); color: var(--ink); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="bar">
+  <a class="brand" href="../index.html"><strong>Leonida Launch Guide</strong><span>unofficial GTA VI fan guide</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../tracker.html">Tracker</a></li>
+    <li><a href="./" aria-current="page">Gift Kit</a></li>
+  </ul></nav>
+</div></header>
+
+<main id="main">
+  <h1>Give GTA VI this Christmas.</h1>
+  <p class="lede">Every copy is a download code, even the boxed one. Give them something to unwrap.</p>
+  <div class="cta-row hero-cta">
+    <a class="btn" id="buy" href="https://buy.stripe.com/28E7sN42G2dc7Yk4uT7wA0D">Give GTA VI this Christmas: Gift Kit $4</a>
+  </div>
+  <p class="small-print">Instant delivery. Type their name, your name and a message, then print or send. Unofficial fan item, not affiliated with Rockstar Games. Not a game code: the game is bought separately.</p>
+
+  <div class="giftwrap">
+    <div class="row">
+      <label for="to" class="small-print">Their name</label>
+      <input id="to" maxlength="24" value="Alex" autocomplete="off">
+    </div>
+    <canvas id="cert" aria-label="Preview of your GTA VI gift certificate"></canvas>
+  </div>
+
+  <section class="card">
+    <h2 style="margin-top:0">What is in the kit</h2>
+    <ul class="plain">
+      <li>A personalised gift certificate: their name, your name, the edition and your message. Full-resolution 3000x2000 PNG, ready to print or send.</li>
+      <li>A one-page &ldquo;how to give it&rdquo; card for their console and country, printed with the certificate.</li>
+      <li>Made in your browser in seconds. No Word, no Canva.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0">Why giving GTA VI is tricky</h2>
+    <ul class="plain">
+      <li>The PlayStation Store has no gift button. On PS5 you give a boxed copy or a PlayStation Store gift card from their country (<a href="https://gta6.how/guides/how-to-buy-gta-6-as-a-gift/" rel="noopener">GTA6.how</a>).</li>
+      <li>The boxed copy is a download code with no disc, and it is always the Standard Edition: Ultimate is digital only (<a href="https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions" rel="noopener">Rockstar Support</a>).</li>
+      <li>PlayStation codes only work on an account from the region they were sold in. Rockstar says Xbox codes are not region-locked (<a href="https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions" rel="noopener">Rockstar Support</a>).</li>
+      <li>Purchases made before 20 November 2026 include the Vintage Vice City Pack (<a href="https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions" rel="noopener">Rockstar Support</a>).</li>
+    </ul>
+    <p class="small-print">The card in the kit covers each of these for their console and country.</p>
+  </section>
+
+  <div class="cta-row">
+    <a class="btn" href="https://buy.stripe.com/28E7sN42G2dc7Yk4uT7wA0D">Get the Gift Kit: $4</a>
+  </div>
+  <p class="launch-note">Unofficial fan item. Not affiliated with or endorsed by Rockstar Games or Take-Two Interactive. Grand Theft Auto and GTA VI are trademarks of their owners. This kit is a printable certificate and guide, not a game code. Refund on request within 14 days.</p>
+</main>
+
+<footer class="site">
+  <p>Unofficial fan site. Not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.</p>
+  <p>Refund on request within 14 days. <a href="../about.html">About and disclaimer</a></p>
+</footer>
+<script src="giftcert.js"></script>
+<script>
+(function () {
+  var c = document.getElementById("cert"), t = document.getElementById("to");
+  function draw() {
+    window.LeonidaGift.drawCert(c, { to: t.value, from: "Your name here", edition: "standard",
+      message: "Merry Christmas. See you in Vice City.", scale: 0.4, watermark: true });
+  }
+  t.addEventListener("input", draw);
+  draw();
+})();
+</script>
+</body>
+</html>
