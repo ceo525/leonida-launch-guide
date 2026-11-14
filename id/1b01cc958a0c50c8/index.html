@@ -37,8 +37,9 @@
   <canvas id="card" aria-label="Your Leonida Citizen ID"></canvas>
   <div class="cta-row">
     <button class="btn" id="dl" type="button">Download my ID (PNG)</button>
-    <a class="btn ghost" id="share" href="#">Post it on X</a>
+    <a class="btn ghost" id="share" href="https://x.com/intent/post?text=My%20Leonida%20Citizen%20ID%20is%20ready%20for%2019%20Nov.%20Make%20yours%3A&amp;url=https%3A%2F%2Fceo525.github.io%2Fleonida-launch-guide%2Fid%2F&amp;via=WorkflowsShelf" target="_blank" rel="noopener">Share my ID on X</a>
   </div>
+  <p class="small-print">Post it with #GTA6 and tag @WorkflowsShelf.</p>
   <p class="launch-note">Unofficial fan item, not affiliated with Rockstar Games. Refund on request within 14 days. Questions or refunds: <a href="https://x.com/WorkflowsShelf" rel="noopener">message @WorkflowsShelf on X</a>.</p>
 </main>
 <footer class="site"><div class="wrap">
@@ -53,7 +54,13 @@
   var c = document.getElementById("card"), a = document.getElementById("alias");
   var q = new URLSearchParams(location.search);
   if (q.get("alias")) a.value = q.get("alias");
-  function draw() { return window.LeonidaID.drawCard(c, { alias: a.value, scale: 2, watermark: false }); }
+  var s = document.getElementById("share"), PAGE = "https://ceo525.github.io/leonida-launch-guide/id/";
+  function share() {
+    var al = a.value.trim(), t = "My Leonida Citizen ID is ready for 19 Nov. Make yours:";
+    if (/^[A-Za-z0-9 _-]{1,20}$/.test(al)) t = "My Leonida Citizen ID (" + al + ") is ready for 19 Nov. Make yours:";
+    s.href = "https://x.com/intent/post?text=" + encodeURIComponent(t) + "&url=" + encodeURIComponent(PAGE) + "&via=WorkflowsShelf";
+  }
+  function draw() { share(); return window.LeonidaID.drawCard(c, { alias: a.value, scale: 2, watermark: false }); }
   a.addEventListener("input", draw);
   document.getElementById("dl").addEventListener("click", function () {
     var info = draw();
@@ -62,8 +69,6 @@
     link.href = c.toDataURL("image/png");
     link.click();
   });
-  var text = encodeURIComponent("Got my Leonida Citizen ID before the doors open. https://ceo525.github.io/leonida-launch-guide/id/");
-  document.getElementById("share").href = "https://x.com/intent/post?text=" + text;
   draw();
 })();
 </script>
