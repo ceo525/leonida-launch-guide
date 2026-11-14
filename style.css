@@ -82,6 +82,10 @@ h3 { margin: 0 0 0.5rem; }
 .hero-cta .btn { flex: 1 1 100%; padding: 0.4rem 1rem; text-align: center; }
 .hero .small-print, .soft-offer .small-print { font-size: 0.9rem; color: var(--ink-soft); margin: 0.35rem 0; }
 .soft-offer p { margin: 0.2rem 0; }
+/* WD-10: compact offer strip under the Playbook buttons */
+.offer-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin: 0.2rem 0 0.3rem; font-size: 0.875rem; color: var(--ink-soft); }
+.offer-strip a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 0.7rem; border: 1px solid var(--panel-line); border-radius: 999px; background: var(--panel); color: var(--gold); text-decoration: none; font-weight: 700; white-space: nowrap; }
+.offer-strip a:hover { border-color: var(--gold); color: #fff; }
 
 .todo { display: inline-block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; padding: 0.1rem 0.5rem; border-radius: 6px; background: var(--teal); color: #06201d; vertical-align: middle; }
 .tbc { display: inline-block; font-size: 0.75rem; font-weight: 800; padding: 0.1rem 0.5rem; border-radius: 6px; background: #fff3c4; color: #4a3500; }
