@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free GTA VI Launch Checklist and Progress Tracker - Leonida Launch Guide</title>
+<meta name="description" content="Free interactive launch checklist with a progress bar. Saved on your device, with export and import as JSON. Unofficial GTA VI fan guide.">
+<link rel="canonical" href="https://ceo525.github.io/leonida-launch-guide/tracker.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Leonida Launch Guide">
+<meta property="og:title" content="Free GTA VI Launch Checklist and Progress Tracker">
+<meta property="og:description" content="Tick off setup, story, side activities and your 100% hunt. Saved on your device. Unofficial fan guide.">
+<meta property="og:url" content="https://ceo525.github.io/leonida-launch-guide/tracker.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="bar">
+  <a class="brand" href="index.html"><strong>Leonida Launch Guide</strong><span>unofficial GTA VI fan guide</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tracker.html" aria-current="page">Tracker</a></li>
+    <li><a href="editions.html">Editions</a></li>
+    <li><a href="pack.html">Field Pack</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul></nav>
+</div></header>
+
+<main id="main">
+  <h1>Launch tracker</h1>
+  <p class="lede">Tick things off as you go. Progress is saved in this browser only. Use Export to back it up or move it to another device.</p>
+
+  <div class="progress-wrap">
+    <div class="progress-top"><span>Overall progress</span><span id="progress-label">0 of 0 done (0%)</span></div>
+    <div class="bar-track" id="bar" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar-fill" id="bar-fill"></div></div>
+  </div>
+
+  <div class="tools">
+    <button type="button" class="btn small" id="btn-export">Export progress (JSON)</button>
+    <button type="button" class="btn small ghost" id="btn-import">Import progress</button>
+    <button type="button" class="btn small ghost" id="btn-reset">Reset</button>
+    <input type="file" id="file-import" accept="application/json,.json" hidden>
+  </div>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+
+  <noscript><p class="card">The tracker needs JavaScript to run.</p></noscript>
+  <div id="tracker"></div>
+
+  <section class="card">
+    <h2 style="margin-top:0">Want it printable and offline?</h2>
+    <p>The Launch-Week Field Pack has printable checklists, an offline copy of this tracker and a 100% progress sheet.</p>
+    <a class="btn" href="pack.html">See the Field Pack</a>
+  </section>
+</main>
+
+<footer class="site">
+  <p>Unofficial fan site. Not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.</p>
+  <p><a href="about.html">About and disclaimer</a></p>
+</footer>
+<script src="tracker-data.js"></script>
+<script src="tracker.js"></script>
+</body>
+</html>
