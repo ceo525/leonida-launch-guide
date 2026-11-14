@@ -161,6 +161,9 @@ main.home { max-width: none; padding: 0; }
 .price-list .price { grid-column: 3; grid-row: 1 / span 2; font-family: var(--display); font-variation-settings: "wdth" 75; font-weight: 800; font-size: 1.8rem; color: var(--peach); font-variant-numeric: tabular-nums; text-align: right; }
 .price-list .act { grid-column: 2 / span 2; }
 .price-list .act a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
+/* WD-25: every secondary buy link gets a thumb-sized (44px) tap target */
+.price-list h3 a { display: inline-flex; align-items: center; min-height: 44px; }
+main :is(p, li) > a[href*="buy.stripe.com"]:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; }
 .price-list .flag { display: inline-block; margin-left: 0.4rem; padding: 0.05rem 0.45rem; border-radius: 4px; background: var(--pool); color: var(--night); font-family: var(--body); font-variation-settings: "wdth" 100; font-size: 0.8rem; font-weight: 700; vertical-align: 0.2em; }
 @media (min-width: 700px) {
   .price-list li { grid-template-columns: 96px minmax(0, 1fr) 7rem 13rem; padding: 1.1rem 0; }
@@ -255,7 +258,9 @@ footer.site > p { max-width: var(--wrap); margin-left: auto; margin-right: auto;
   .hero-cta { margin-top: 0.6rem; }
   .cta-row { margin: 0.75rem 0; }
   .hero-art { min-height: 190px; }
-  .hero-copy { padding-top: 0.9rem; }
+  .hero-copy { padding-top: 0.75rem; }
+  .hero-copy .promise { margin-bottom: 0.7rem; }
+  .hero-copy .fine { margin-top: 0.4rem; }
 }
 
 @media (min-width: 600px) { .two { grid-template-columns: 1fr 1fr; } }
