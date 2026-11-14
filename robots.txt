@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /thanks.html
 Disallow: /downloads/
+Disallow: /d/
 
 Sitemap: https://ceo525.github.io/leonida-launch-guide/sitemap.xml
