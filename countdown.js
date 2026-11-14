@@ -4,7 +4,6 @@
   var target = new Date(2026, 10, 19, 0, 0, 0).getTime();
   var root = document.getElementById('countdown');
   if (!root) return;
-  root.hidden = false; // HTML ships hidden so no-JS visitors see the "Launches 19 November 2026" line, never "--".
   var els = {
     d: root.querySelector('[data-unit="days"]'),
     h: root.querySelector('[data-unit="hours"]'),
@@ -29,4 +28,7 @@
   }
   var timer = setInterval(tick, 1000);
   tick();
+  // Fill real numbers first, then reveal: the "--" placeholders are never on screen.
+  // HTML ships hidden so no-JS visitors see the static "19 November 2026" line instead.
+  root.hidden = false;
 })();
