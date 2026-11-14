@@ -46,8 +46,9 @@
     </div>
     <canvas id="card" aria-label="Preview of your Leonida Citizen ID"></canvas>
     <div class="cta-row hero-cta">
-      <a class="btn" id="buy" href="https://buy.stripe.com/14A4gB1Uy198baw5yX7wA0c">Claim my ID: $3</a>
+      <a class="btn" id="buy" href="https://buy.stripe.com/14A4gB1Uy198baw5yX7wA0c">Claim this ID: $3</a>
       <button class="btn ghost" id="dl" type="button">Download free preview</button>
+      <a class="btn ghost" id="share" href="https://x.com/intent/post?text=My%20Leonida%20Citizen%20ID%20is%20ready%20for%2019%20Nov.%20Make%20yours%3A&amp;url=https%3A%2F%2Fceo525.github.io%2Fleonida-launch-guide%2Fid%2F&amp;via=WorkflowsShelf" target="_blank" rel="noopener">Share my ID on X</a>
     </div>
     <p class="small-print">Less than the $4.99 Field Pack. Paid ID: full resolution, no watermark, instant. The free preview is small and watermarked.</p>
     <p class="small-print">Instant delivery. Unofficial fan item, not affiliated with Rockstar Games. Refund on request within 14 days. Questions or refunds: <a href="https://x.com/WorkflowsShelf" rel="noopener">message @WorkflowsShelf on X</a>.</p>
@@ -63,8 +64,14 @@
 <script src="idcard.js"></script>
 <script>
 (function () {
-  var c = document.getElementById("card"), a = document.getElementById("alias");
-  function draw() { window.LeonidaID.drawCard(c, { alias: a.value, scale: 0.4, watermark: true }); }
+  var c = document.getElementById("card"), a = document.getElementById("alias"), s = document.getElementById("share");
+  var PAGE = "https://ceo525.github.io/leonida-launch-guide/id/";
+  function share() {
+    var al = a.value.trim(), t = "My Leonida Citizen ID is ready for 19 Nov. Make yours:";
+    if (/^[A-Za-z0-9 _-]{1,20}$/.test(al)) t = "My Leonida Citizen ID (" + al + ") is ready for 19 Nov. Make yours:";
+    s.href = "https://x.com/intent/post?text=" + encodeURIComponent(t) + "&url=" + encodeURIComponent(PAGE) + "&via=WorkflowsShelf";
+  }
+  function draw() { window.LeonidaID.drawCard(c, { alias: a.value, scale: 0.4, watermark: true }); share(); }
   a.addEventListener("input", draw);
   document.getElementById("dl").addEventListener("click", function () {
     var link = document.createElement("a");
