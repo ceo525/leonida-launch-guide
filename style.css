@@ -213,6 +213,9 @@ summary { cursor: pointer; min-height: 44px; display: flex; align-items: center;
 .countdown .num { display: block; font-family: var(--display); font-variation-settings: "wdth" 75; font-size: clamp(1.7rem, 7vw, 2.4rem); font-weight: 800; line-height: 1.05; color: var(--sand); font-variant-numeric: tabular-nums; }
 .countdown .lbl { font-size: 0.8rem; color: var(--sand-soft); }
 .hero-cta { margin: 1rem 0 0.4rem; }
+/* WD-19: same as .buy .btn: full-width priced button on phones */
+.hero-cta .btn { width: 100%; }
+@media (min-width: 600px) { .hero-cta .btn { width: auto; } }
 
 /* ---------- tracker ---------- */
 .progress-wrap { position: sticky; top: 0; z-index: 4; background: var(--night); border-bottom: 1px solid var(--dusk-line); padding: 0.75rem 0; margin: 1.25rem 0 0.5rem; }
