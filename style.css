@@ -14,6 +14,7 @@
   --max: 960px;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
@@ -70,6 +71,18 @@ h3 { margin: 0 0 0.5rem; }
 .countdown .lbl { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
 .launch-note { color: var(--ink); font-size: 0.95rem; background: var(--panel); border: 1px solid var(--panel-line); border-radius: var(--radius); padding: 0.6rem 0.9rem; }
 
+/* home hero (impulse offer above the fold) */
+.hero h1 { font-size: clamp(1.85rem, 7vw, 3.25rem); margin-bottom: 0.5rem; }
+.cd-date { margin: 0; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); }
+.countdown.compact { grid-template-columns: repeat(4, 1fr); gap: 0.4rem; margin: 0.5rem 0 0; }
+.countdown.compact li { padding: 0.35rem 0.2rem; }
+.countdown.compact .num { font-size: clamp(1.5rem, 7vw, 2.5rem); }
+.countdown.compact .lbl { font-size: 0.7rem; letter-spacing: 0.06em; }
+.hero-cta { margin: 0.8rem 0 0.4rem; gap: 0.6rem; }
+.hero-cta .btn { flex: 1 1 100%; padding: 0.4rem 1rem; text-align: center; }
+.hero .small-print, .soft-offer .small-print { font-size: 0.9rem; color: var(--ink-soft); margin: 0.35rem 0; }
+.soft-offer p { margin: 0.2rem 0; }
+
 .todo { display: inline-block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; padding: 0.1rem 0.5rem; border-radius: 6px; background: var(--teal); color: #06201d; vertical-align: middle; }
 .tbc { display: inline-block; font-size: 0.75rem; font-weight: 800; padding: 0.1rem 0.5rem; border-radius: 6px; background: #fff3c4; color: #4a3500; }
 ul.plain { padding-left: 1.2rem; }
@@ -99,5 +112,6 @@ footer.site p { margin: 0.25rem auto; max-width: var(--max); }
 @media (min-width: 600px) {
   .countdown { grid-template-columns: repeat(4, 1fr); }
   .two { grid-template-columns: 1fr 1fr; }
+  .hero-cta .btn { flex: 0 1 auto; }
 }
 @media (prefers-reduced-motion: reduce) { .bar-fill { transition: none; } }

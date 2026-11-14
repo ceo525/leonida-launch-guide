@@ -34,25 +34,28 @@
 </div></header>
 
 <main id="main">
-  <h1>Get ready for launch day</h1>
-  <p class="lede">A free countdown and checklist so you are set up, downloaded and playing the moment the game opens up.</p>
-
-  <section aria-labelledby="cd-h">
-    <h2 id="cd-h" style="margin-top:1.25rem">Countdown to 19 November 2026, 00:00 (your local time)</h2>
-    <ul class="countdown" id="countdown" role="timer" aria-label="Time remaining until 19 November 2026">
+  <section class="hero" aria-labelledby="hero-h">
+    <h1 id="hero-h">Get your Leonida ID before the doors open.</h1>
+    <p class="cd-date">Launches 19 November 2026</p>
+    <ul class="countdown compact" id="countdown" role="timer" aria-label="Time remaining until 19 November 2026" hidden>
       <li><span class="num" data-unit="days">--</span><span class="lbl">Days</span></li>
       <li><span class="num" data-unit="hours">--</span><span class="lbl">Hours</span></li>
       <li><span class="num" data-unit="minutes">--</span><span class="lbl">Minutes</span></li>
       <li><span class="num" data-unit="seconds">--</span><span class="lbl">Seconds</span></li>
     </ul>
-    <p class="launch-note" id="countdown-note">Counts down to midnight at the start of 19 November 2026 in your time zone. Exact unlock times can differ by region.</p>
-    <noscript><p class="card">The live countdown needs JavaScript. The target is 19 November 2026, 00:00 local time.</p></noscript>
+    <div class="cta-row hero-cta">
+      <a class="btn" href="id/">Claim my ID: $3</a>
+      <a class="btn ghost" href="pack.html">Get the launch-week field pack: $4.99</a>
+    </div>
+    <p class="small-print">Instant delivery. Unofficial fan item, not affiliated with Rockstar Games.</p>
+    <p class="small-print"><a href="tracker.html">Or use the free launch tracker</a></p>
   </section>
 
-  <div class="cta-row">
-    <a class="btn" href="tracker.html">Open the free launch tracker</a>
-    <a class="btn ghost" href="pack.html">See the Launch-Week Field Pack</a>
-  </div>
+  <section aria-labelledby="cd-h">
+    <h2 id="cd-h">Get ready for launch day</h2>
+    <p class="lede">A free countdown and checklist so you are set up, downloaded and playing the moment the game opens up.</p>
+    <p class="launch-note" id="countdown-note">Counts down to midnight at the start of 19 November 2026 in your time zone. Exact unlock times can differ by region.</p>
+  </section>
 
   <section class="card" aria-labelledby="conf-h">
     <h2 id="conf-h" style="margin-top:0">What is confirmed</h2>
@@ -69,7 +72,7 @@
 
 <footer class="site">
   <p>Unofficial fan site. Not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.</p>
-  <p><a href="about.html">About and disclaimer</a></p>
+  <p>Refund on request within 14 days. <a href="about.html">About and disclaimer</a></p>
 </footer>
 <script src="countdown.js"></script>
 </body>
